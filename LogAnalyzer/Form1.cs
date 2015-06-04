@@ -121,15 +121,18 @@ namespace LogAnalyzer {
                         }
                     }
 
+                    StringBuilder sb = new StringBuilder();
+
                     while ( line != null ) {
 
                         if ( inputFilter.Keep( line ) ) {
-                            rtb.AppendText( line );
-                            rtb.AppendText( "\n" );
+                            sb.AppendLine( line );
                         }
 
                         line = sr.ReadLine();
                     }
+
+                    rtb.Text = sb.ToString();
                 }
             } catch { }
         }
